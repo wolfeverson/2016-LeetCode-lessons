@@ -12,7 +12,12 @@ namespace LeetCode_
     {
         static void Main(string[] args)
         {
-           
+            ListNode a = new ListNode(0);
+            a.next = new ListNode(1);
+            DeleteNodeinLinkedList(a);
+
+
+            return;
         }
 
         static public int[] TwoSum(int[] nums, int target)
@@ -39,7 +44,6 @@ namespace LeetCode_
             return null;
         }
 
-        
         static public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             //https://leetcode.com/problems/add-two-numbers/
@@ -59,27 +63,6 @@ namespace LeetCode_
 
             return response.next;
         }
-        #region AddTwoNumbers 
-        //AddTwoNumbers
-        public static long ListNodeToString(ListNode curr)
-        {
-            string value = curr.val.ToString();
-            while (curr.next != null)
-            {
-                curr = curr.next;
-                value += curr.val.ToString();
-            }
-            value = StringReverse(value);
-            return long.Parse(value);
-        }
-        //AddTwoNumbers
-         public class ListNode
-        {
-             public int val;
-             public ListNode next;
-             public ListNode(int x) { val = x; }
-        }
-        #endregion
 
         public static string StringReverse(string s)
         {
@@ -227,6 +210,7 @@ namespace LeetCode_
 
         public static int MaxDepth(TreeNode  root)
         {
+            //https://leetcode.com/problems/maximum-depth-of-binary-tree/
             if (root == null) return 0;
             List <TreeNode> list = new List<TreeNode>();
             root.val = 1;
@@ -252,8 +236,124 @@ namespace LeetCode_
             }
             return maxVal;
         }
-        #region #maxdepth
+
+        public static TreeNode InvertTree(TreeNode root)
+        {
+            //https://leetcode.com/problems/invert-binary-tree/
+            if (root == null) return null;
+            TreeNode leftchild = InvertTree(root.left);
+            TreeNode rightchild = InvertTree(root.right);
+            root.left = rightchild;
+            root.right = leftchild;
+            return root;
+        }
+
+        public static void MoveZeroes(int[] nums)
+        {
+            //https://leetcode.com/problems/move-zeroes/
+            //Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+            for (int i = 0; i < nums.Count(); i++)
+            {  
+                int value = nums[i];
+                int startindex = i;
+                if (value == 0)
+                {
+                    //grab next non-zero value...
+                    int newindex = 0;
+                    for (int i2=i+1; i2 < nums.Count() && newindex == 0; i2++)
+                    {
+                        int temp = nums[i2];
+                        if (temp != 0)
+                        {
+                            newindex = i2;
+                        }
+                    }
+                    //...and swap
+                    if (newindex != 0)
+                    {
+                        nums[i] = nums[newindex];
+                        nums[newindex] = 0;
+                    }
+                }
+            }
+            return;
+        }
+
+        public static int[] IntersectionofTwoArrays(int[] nums1,int[] nums2)
+        {
+            // https://leetcode.com/problems/intersection-of-two-arrays/
+            //Given two arrays, write a function to compute their intersection.
+            return nums1.Intersect(nums2).ToArray();
+        }
+
+        static void DeleteNodeinLinkedList(ListNode node)
+        {
+            //https://leetcode.com/problems/delete-node-in-a-linked-list/
+            //Delete a node in a singly-linked list without having access to previous node.
+            node.val = node.next.val;
+            node.next = node.next.next;
+            return;
+        }
+
+        public static bool IsSameTree(TreeNode p, TreeNode q)
+        {
+            //https://leetcode.com/problems/same-tree/
+            //Given two binary trees, write a function to check if they are equal or not.
+            if (p == null && q == null) return true;
+            if (p == null || q == null) return false;
+            if (p.val != q.val) return false;
+            return (IsSameTree(p.right, q.right) && IsSameTree(p.left, q.left));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #region AddTwoNumbers 
+        //AddTwoNumbers
+        public static long ListNodeToString(ListNode curr)
+        {
+            string value = curr.val.ToString();
+            while (curr.next != null)
+            {
+                curr = curr.next;
+                value += curr.val.ToString();
+            }
+            value = StringReverse(value);
+            return long.Parse(value);
+        }
+        #endregion
+
+
+        //AddTwoNumbers
+        //DeleteNodeInLinkedList
+        public class ListNode
+        {
+            public int val;
+            public ListNode next;
+            public ListNode(int x) { val = x; }
+        }
+        //IsSameTree
         //MaxDepth
+        //InvertBinaryTree
         public class TreeNode
         {
             public int val;
@@ -261,7 +361,6 @@ namespace LeetCode_
             public TreeNode right;
             public TreeNode(int x) { val = x; }
         }
-        #endregion
 
     }
 }
