@@ -1,1 +1,7 @@
 C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\bin\Debug\LeetCode_.exe.config
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\bin\Debug\LeetCode_.exe
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\bin\Debug\LeetCode_.pdb
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\obj\Debug\LeetCode_.csprojResolveAssemblyReference.cache
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\obj\Debug\LeetCode_.exe
+C:\Users\Noyoki\Documents\GitHub\2016-LeetCode-lessons\LeetCode_\LeetCode_\obj\Debug\LeetCode_.pdb
